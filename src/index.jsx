@@ -1,17 +1,20 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {render} from 'react-dom';
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import reducer from './reducers';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 
-import AwesomeComponent from './AwesomeComponent.jsx';
+import App from './containers/App';
 
-class App extends React.Component {
-  render () {
-    return (
-      <div>
-        <p> Hello React!yo yo yo ha ha ha 111 222 333 444 555</p>
-        <AwesomeComponent />
-      </div>
-    );
-  }
-}
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
-render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
