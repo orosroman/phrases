@@ -1,44 +1,18 @@
 import {ACTIONS} from '../actions/index.js'
 
 const initialState = {
-    isFrontFlipper: true,
-    currentIndex: 0,
-    phraseList: [
-        {
-            id: 1,
-            en: "go back",
-            ua: "повертатися"
-        },
-        {
-            id: 2,
-            en: "as soon as possible",
-            ua: "якнайшвидше"
-        },
-        {
-            id: 3,
-            en: "it doesn't matter",
-            ua: "не має значення"
-        },
-        {
-            id: 4,
-            en: "what's going on?",
-            ua: "що відбувається?"
-        },
-        {
-            id: 5,
-            en: "I can't be bothered",
-            ua: "мене це не турбує"
-        },
-        {
-            id: 6,
-            en: "I can't be bothered I can't be bothered I can't be bothered",
-            ua: "мене це не турбує мене це не турбує мене це не турбує"
-        }
-    ]
+    phraseList: [],
+    fetching: true
 }
 
 export default function reducers(state = initialState, action) {
     switch (action.type) {
+        case ACTIONS.FETCH_PHRASES:
+            return {...state, fetching: true};
+        case ACTIONS.SUCCESS_FETCH_PHRASES:
+            return {...state, fetching: false, isFrontFlipper: true, currentIndex: 0, phraseList: action.payload};
+        case ACTIONS.ERROR_FETCH_PHRASES:
+            return {...state, fetching: false, error: true};
         case ACTIONS.FLIP:
             return {...state, isFrontFlipper: !state.isFrontFlipper};
         case ACTIONS.GO_BACK:
@@ -64,7 +38,11 @@ export default function reducers(state = initialState, action) {
             while(randomNum === state.currentIndex) {
                 randomNum = random(min, max)
             }
-            return {...state, currentIndex: randomNum};
+            return {
+                ...state,
+                currentIndex: randomNum,
+                isFrontFlipper: true
+            };
         default:
             return state;
     }
