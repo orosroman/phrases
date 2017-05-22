@@ -40,20 +40,20 @@ const startFetchingPhrases = () => {
     }
 }
 
-const successFethingPhraes = (phraseList) => {
+const successFethingPhrases = (phraseList) => {
     return {
         type: ACTIONS.SUCCESS_FETCH_PHRASES,
         payload: phraseList
     }
 }
 
-const errorFethingPhraes = () => {
+const errorFethingPhrases = () => {
     return {
         type: ACTIONS.ERROR_FETCH_PHRASES
     }
 }
 
-export const fetchPosts = () => {
+export const fetchPhrases = () => {
     return dispatch => {
     dispatch(startFetchingPhrases())
     setTimeout(() => {
@@ -68,7 +68,7 @@ export const fetchPosts = () => {
             if (isOk) {
                 dispatch(successFethingPhraes(json))
             } else {
-                dispatch(errorFethingPhraes())
+                dispatch(errorFethingPhrases())
             }
         })
     }, 3000)

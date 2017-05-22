@@ -9,11 +9,11 @@ import {flipPhrase} from '../actions/index.js';
 import {back} from '../actions/index.js';
 import {next} from '../actions/index.js';
 import {random} from '../actions/index.js';
-import {fetchPosts} from '../actions/index.js';
+import {fetchPhrases} from '../actions/index.js';
 
 class App extends Component {
     componentWillMount() {
-        {this.props.fetchPosts()}
+        {this.props.fetchPhrases()}
     }
     render() {
         return (
@@ -77,8 +77,8 @@ const mapDispatchToState = (dispatch) => {
         onRandomClick: () => {
             dispatch(random())
         },
-        fetchPosts: () => {
-            dispatch(fetchPosts())
+        fetchPhrases: () => {
+            dispatch(fetchPhrases())
         }
     }
 }
