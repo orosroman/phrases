@@ -8,7 +8,7 @@ const PATHS = {
 };
 
 var config = {
-  devtool: (process.env.NODE_ENV === "production") ? '' : 'eval-source-map',
+  devtool: (process.env.NODE_ENV === "production") ? '' : 'cheap-module-eval-source-map',
   context: PATHS.src,
   entry: {
     app: './index.jsx'
