@@ -4,11 +4,11 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
   src: path.resolve(__dirname, 'src'),
-  build: path.resolve(__dirname, 'public'),
+  build: path.resolve(__dirname, 'public')
 };
 
 var config = {
-  devtool: (process.env.NODE_ENV === "production") ? '' : 'cheap-module-source-map',
+  devtool: (process.env.NODE_ENV === "production") ? '' : 'eval-source-map',
   context: PATHS.src,
   entry: {
     app: './index.jsx'
@@ -47,7 +47,7 @@ var config = {
       },
       {
         test: /\.(woff2?|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=[name].[ext]'
+        loader: 'file-loader?name=fonts/[name].[ext]'
       }
     ]
   },

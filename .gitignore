@@ -1,3 +1,6 @@
-/build
+/public/*
+!/public/index.jsx
+!/public/favicon.ico
+!/public/offline.manifest
 /node_modules
 /.vscode
