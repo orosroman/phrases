@@ -47,7 +47,7 @@ var config = {
       },
       {
         test: /\.(woff2?|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
+        loader: 'file-loader?name=[name].[ext]'
       }
     ]
   },
