@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import PhraseDisplayer from '../components/PhraseDisplayer';
 import ControlPanel from '../components/ControlPanel';
 import InfoAlert from '../components/InfoAlert';
+import Spinner from '../components/Spinner';
 import {flipPhrase} from '../actions/index.js';
 import {back} from '../actions/index.js';
 import {next} from '../actions/index.js';
@@ -41,6 +42,9 @@ class App extends Component {
                         type={'danger'}
                         text={'An error occurred with getting data from the server (Сталася помилка при отриманні даних з сервера)'}
                     />
+                }
+                {this.props.fetching &&
+                    <Spinner />
                 }
             </div>
         )

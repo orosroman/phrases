@@ -42,9 +42,13 @@ var config = {
         )
       },
       {
-        test: /\.min.css$/,
+        test: /\.css$/,
         loader: 'style-loader!css-loader'
       },
+      {
+        test: /\.(woff2?|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+      }
     ]
   },
   resolve: {
