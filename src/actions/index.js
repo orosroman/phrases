@@ -57,14 +57,15 @@ export const fetchPhrases = () => {
     return dispatch => {
     dispatch(startFetchingPhrases())
     setTimeout(() => {
-        let status;
+        let isOk;
         fetch(`http://localhost:3000/phraseList`)
         .then(response => {
-            status = response.status
+            isOk = response.ok
+            console.log(response);
             return response.json()
         })
         .then(json => {
-            if (status === 200) {
+            if (isOk) {
                 dispatch(successFethingPhrases(json))
             } else {
                 dispatch(errorFethingPhrases())
