@@ -1,76 +1,31 @@
-@flip-height-md: 100px;
-@flip-height-sm: 120px;
-@flip-height-xs: 150px;
+@flip-height: 100px;
 
 @flipper-margin-top-md: 10vh;
 @flipper-margin-top-xs: 5vh;
 
 @xs-size-max: 575px;
-@sm-size-max: 767px;
 
 @flipper-background-color: #4dc3ff;
 @flipper-text-color: white;
 
 .flip-container {
-	perspective: 3000px;
-    height: @flip-height-md;
     width: 100%;
     margin-top: @flipper-margin-top-md;
     margin-bottom: 20px;
 
-    @media only screen and (max-width: @sm-size-max) {
-        height: @flip-height-sm;
-    }
-
     @media only screen and (max-width: @xs-size-max) {
-        height: @flip-height-xs;
         margin-top: @flipper-margin-top-xs;
     }
 
-    .rotate {
-        transform: rotateX(180deg);
-    }
+    div.jumb {
+        padding: 20px;
+        margin: 0;
+        background-color: @flipper-background-color;
+        min-height: @flip-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: @flipper-text-color;
 
-    .flipper {
-        transition: 0.6s;
-        transform-style: preserve-3d;
-        position: relative;
-        height: 100%;
-
-        .front, .back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-
-            div.jumb {
-                padding: 20px;
-                margin: 0;
-                background-color: @flipper-background-color;
-                height: @flip-height-md;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: @flipper-text-color;
-
-                @media only screen and (max-width: @sm-size-max) {
-                    height: @flip-height-sm;
-                }
-
-                @media only screen and (max-width: @xs-size-max) {
-                    height: @flip-height-xs;
-                }
-            }
-        }
-
-        .front {
-            z-index: 2;
-            transform: rotateX(0deg);
-        }
-
-        .back {
-            transform: rotateX(180deg);
-        }
     }
 }

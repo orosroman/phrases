@@ -58,19 +58,19 @@ export const fetchPhrases = () => {
     dispatch(startFetchingPhrases())
     setTimeout(() => {
         let isOk;
-        fetch(`http://localhost:3000/phraseList`)
+        fetch('phrases.json')
+        // fetch(`http://localhost:3000/phraseList`)
         .then(response => {
             isOk = response.ok
-            console.log(response);
             return response.json()
         })
         .then(json => {
             if (isOk) {
-                dispatch(successFethingPhrases(json))
+                dispatch(successFethingPhrases(json.phraseList))
             } else {
                 dispatch(errorFethingPhrases())
             }
         })
-    }, 3000)
+    }, 1000)
     }
 }
