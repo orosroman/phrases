@@ -5,24 +5,21 @@ import PhraseDisplayer from '../components/PhraseDisplayer';
 import ControlPanel from '../components/ControlPanel';
 import InfoAlert from '../components/InfoAlert';
 import Spinner from '../components/Spinner';
-import {flipPhrase} from '../actions/index.js';
-import {back} from '../actions/index.js';
-import {next} from '../actions/index.js';
-import {random} from '../actions/index.js';
-import {fetchPhrases} from '../actions/index.js';
+import {flipPhrase, back, next, random, fetchPhrases} from '../actions/index.js';
 
 class App extends Component {
     componentWillMount() {
-        {this.props.fetchPhrases()}
+        this.props.fetchPhrases()
     }
+
     render() {
         return (
             <div className="container">
-                 {(!this.props.fetching && this.props.phrasesCount !== 0) &&
+                 {!this.props.fetching && this.props.phrasesCount !== 0 &&
                     <div>
                         <PhraseDisplayer
                             phrase={this.props.phrase}
-                            isFrontFlipper={this.props.isFrontFlipper}
+                            isFront={this.props.isFront}
                         />
                         <ControlPanel 
                             phrasesCount={this.props.phrasesCount}
@@ -34,13 +31,13 @@ class App extends Component {
                         />
                     </div>
                  }
-                {(!this.props.fetching && this.props.phrasesCount === 0 && !this.props.error) &&
-                    <InfoAlert text={'Vocabulary is empty (Словник порожній)'} type={'info'}/>
+                {!this.props.fetching && this.props.phrasesCount === 0 && !this.props.error &&
+                    <InfoAlert text={'Vocabulary is empty'} type={'info'}/>
                 }
-                {(!this.props.fetching && this.props.error) &&
+                {!this.props.fetching && this.props.error &&
                     <InfoAlert
                         type={'danger'}
-                        text={'An error occurred with getting data from the server (Сталася помилка при отриманні даних з сервера)'}
+                        text={'An error occurred with getting data from the server'}
                     />
                 }
                 {this.props.fetching &&
@@ -56,14 +53,14 @@ const mapStateToProps = (state) => {
     return {
         phrase: state.phraseList[currentIndex],
         phrasesCount: state.phraseList.length,
-        isFrontFlipper: state.isFrontFlipper,
+        isFront: state.isFront,
         currentIndex: currentIndex,
         fetching: state.fetching,
         error: state.error
     }
-}
+};
 
-const mapDispatchToState = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         onFlipClick: () => {
             dispatch(flipPhrase())
@@ -81,6 +78,6 @@ const mapDispatchToState = (dispatch) => {
             dispatch(fetchPhrases())
         }
     }
-}
+};
 
-export default connect (mapStateToProps, mapDispatchToState)(App);
+export default connect (mapStateToProps, mapDispatchToProps)(App);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import cm from "react-classname-module";
 
 import styles from "../styles/ControlPanel.style.less";
@@ -13,7 +13,6 @@ class ControlPanel extends Component {
                     <Button
                         bsStyle="primary"
                         className="w-100 control-btn"
-                        disabled={this.props.currentIndex === 0}
                         onClick={this.props.onBackClick}
                     >
                         Back
@@ -23,7 +22,6 @@ class ControlPanel extends Component {
                     <Button
                         bsStyle="primary"
                         className="w-100 control-btn"
-                        disabled={this.props.currentIndex === this.props.phrasesCount-1}
                         onClick={this.props.onNextClick}
                     >
                         Next
@@ -59,6 +57,6 @@ ControlPanel.propTypes = {
     onBackClick: PropTypes.func.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onRandomClick: PropTypes.func.isRequired,
-}
+};
 
 export default cm(ControlPanel, styles);

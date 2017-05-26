@@ -1,6 +1,4 @@
-@flip-height: 100px;
-
-@flipper-margin-top-md: 10vh;
+@flipper-margin-top: 10vh;
 @flipper-margin-top-xs: 5vh;
 
 @xs-size-max: 575px;
@@ -10,22 +8,21 @@
 
 .flip-container {
     width: 100%;
-    margin-top: @flipper-margin-top-md;
+    margin-top: @flipper-margin-top;
     margin-bottom: 20px;
 
     @media only screen and (max-width: @xs-size-max) {
         margin-top: @flipper-margin-top-xs;
     }
 
-    div.jumb {
+    div.displayer {
         padding: 20px;
         margin: 0;
         background-color: @flipper-background-color;
-        min-height: @flip-height;
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: @flipper-text-color;
-
     }
 }
