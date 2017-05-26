@@ -1,9 +1,9 @@
 import React from 'react';
-import cm from "react-classname-module";
+import cm from 'react-classname-module';
 import FontAwesome from 'react-fontawesome';
 import 'font-awesome/css/font-awesome.css';
 
-import styles from "../styles/Spinner.style.less";
+import styles from '../styles/Spinner.style.less';
 
 const Spinner = () => {
     return (
@@ -15,7 +15,7 @@ const Spinner = () => {
                 className='spinner'
             />
         </div>
-    )
+    );
 };
 
 export default cm(Spinner, styles);

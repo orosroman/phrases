@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --progress",
     "build": "SET NODE_ENV=production&& webpack -p --config webpack.config.js --progress",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint app/ webpack.*.js --cache"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.1",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "less": "^2.7.2",

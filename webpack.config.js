@@ -21,10 +21,27 @@ var config = {
     compress: true,
     port: 9000,
     open: true,
-    contentBase: PATHS.build
+    contentBase: PATHS.build,
+    overlay: {
+        errors: true,
+        warnings: true,
+    }
   },
   module: {
-    loaders : [
+    rules : [
+      {
+          test: /\.jsx?$/,
+          enforce: 'pre',
+          loader: 'eslint-loader',
+          exclude: /node_modules/,
+          options: {
+              emitWarning: false,
+              emitError: true,
+              failOnError: true,
+              failOnWarning: true,
+              fix: true
+          },
+      },
       {
         test : /\.jsx?$/,
         exclude: /node_modules/,

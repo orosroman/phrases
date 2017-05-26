@@ -9,7 +9,7 @@ import {flipPhrase, back, next, random, fetchPhrases} from '../actions/index.js'
 
 class App extends Component {
     componentWillMount() {
-        this.props.fetchPhrases()
+        this.props.fetchPhrases();
     }
 
     render() {
@@ -44,7 +44,7 @@ class App extends Component {
                     <Spinner />
                 }
             </div>
-        )
+        );
     }
 }
 
@@ -57,27 +57,27 @@ const mapStateToProps = (state) => {
         currentIndex: currentIndex,
         fetching: state.fetching,
         error: state.error
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onFlipClick: () => {
-            dispatch(flipPhrase())
+            dispatch(flipPhrase());
         },
         onBackClick: () => {
-            dispatch(back())
+            dispatch(back());
         },
         onNextClick: () => {
-            dispatch(next())
+            dispatch(next());
         },
         onRandomClick: () => {
-            dispatch(random())
+            dispatch(random());
         },
         fetchPhrases: () => {
-            dispatch(fetchPhrases())
+            dispatch(fetchPhrases());
         }
-    }
+    };
 };
 
 export default connect (mapStateToProps, mapDispatchToProps)(App);

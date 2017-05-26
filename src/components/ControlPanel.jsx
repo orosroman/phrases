@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
-import cm from "react-classname-module";
+import cm from 'react-classname-module';
 
-import styles from "../styles/ControlPanel.style.less";
+import styles from '../styles/ControlPanel.style.less';
 
 class ControlPanel extends Component {
     render() {
@@ -46,7 +46,7 @@ class ControlPanel extends Component {
                     </Button>
                 </div>
             </div>
-        )
+        );
     }
 }
 

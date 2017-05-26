@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cm from "react-classname-module";
+import cm from 'react-classname-module';
 
-import styles from "../styles/PhraseDisplayer.style.less";
+import styles from '../styles/PhraseDisplayer.style.less';
 
 const PhraseDisplayer = ({phrase, isFront}) => (
     <div className='flip-container'>
