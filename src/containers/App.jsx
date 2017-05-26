@@ -15,13 +15,13 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                 {!this.props.fetching && this.props.phrasesCount !== 0 &&
+                {!this.props.fetching && this.props.phrasesCount !== 0 &&
                     <div>
                         <PhraseDisplayer
                             phrase={this.props.phrase}
                             isFront={this.props.isFront}
                         />
-                        <ControlPanel 
+                        <ControlPanel
                             phrasesCount={this.props.phrasesCount}
                             currentIndex={this.props.currentIndex}
                             onFlipClick={this.props.onFlipClick}
@@ -30,7 +30,7 @@ class App extends Component {
                             onRandomClick={this.props.onRandomClick}
                         />
                     </div>
-                 }
+                }
                 {!this.props.fetching && this.props.phrasesCount === 0 && !this.props.error &&
                     <InfoAlert text={'Vocabulary is empty'} type={'info'}/>
                 }

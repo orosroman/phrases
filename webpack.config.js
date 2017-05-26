@@ -24,7 +24,7 @@ var config = {
     contentBase: PATHS.build,
     overlay: {
         errors: true,
-        warnings: true,
+        warnings: false,
     }
   },
   module: {
@@ -36,9 +36,9 @@ var config = {
           exclude: /node_modules/,
           options: {
               emitWarning: false,
-              emitError: true,
+              emitError: false,
               failOnError: true,
-              failOnWarning: true,
+              failOnWarning: false,
               fix: true
           },
       },

@@ -23,12 +23,16 @@
             "error",
             {"skipUndeclared": true}
         ],
+        "no-console": [
+            "warn",
+            { "allow": ["warn", "error"] }
+        ],
         "no-unused-vars": [
             "error",
             { "varsIgnorePattern": "Bootstrap" }
         ],
         "indent": [
-            "error",
+            "warn",
             4,
             {
                 "SwitchCase": 1,
@@ -43,11 +47,11 @@
             "windows"
         ],
         "quotes": [
-            "error",
+            "warn",
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always",
             { "omitLastInOneLineBlock": true}
         ]
